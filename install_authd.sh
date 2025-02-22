@@ -28,7 +28,6 @@ if [ "$(id -u)" -ne 0 ]; then
 fi
 
 # Verifica as variáveis de ambiente obrigatórias
-: "${AUTHD_SERVER_ADDRESS:?Variável AUTHD_SERVER_ADDRESS não definida}"
 : "${AUTHD_API_KEY:?Variável AUTHD_API_KEY não definida}"
 
 # Define valores padrão para variáveis opcionais, se não definidas
@@ -46,7 +45,7 @@ cat > "${AUTHD_CONFIG_PATH}" <<EOF
 # Configuração do authd
 # =============================================================================
 # Endereço do servidor authd
-server_address = "${AUTHD_SERVER_ADDRESS}"
+server_address = "https://auth.hexingbrasil.onmicrosoft.com"
 
 # Chave de API para autenticação
 api_key = "${AUTHD_API_KEY}"
