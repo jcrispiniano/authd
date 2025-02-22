@@ -35,10 +35,12 @@ AUTHD_CONFIG_PATH=${AUTHD_CONFIG_PATH:-/etc/authd/authd.conf}
 AUTHD_SSH_CONFIG_OPTION=${AUTHD_SSH_CONFIG_OPTION:-enabled}
 
 echo "Atualizando repositórios..."
+add-apt-repository ppa:ubuntu-enterprise-desktop/authd
 apt-get update
 
 echo "Instalando o pacote authd..."
 apt-get install -y authd
+snap install authd-msentraid -y
 
 echo "Criando arquivo de configuração do authd em ${AUTHD_CONFIG_PATH}..."
 cat > "${AUTHD_CONFIG_PATH}" <<EOF
